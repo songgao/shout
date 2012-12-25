@@ -2,7 +2,7 @@ Shout
 =====
 Handles the shell scripting from Go language.
 
-[Documentation online](http://go.pkgdoc.org/github.com/kless/shout)
+[Documentation online](http://godoc.org/github.com/kless/shout)
 
 #### Why?
 

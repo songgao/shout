@@ -12,7 +12,6 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"syscall"
 
 	"github.com/kless/terminal"
 )
@@ -47,7 +46,7 @@ func ReadPassword(prompt string) (key []byte, err error) {
 		var n int
 		pass := make([]byte, 16)
 
-		n, err = terminal.ReadPassword(syscall.Stdin, pass)
+		n, err = terminal.ReadPassword(pass)
 		if err == nil {
 			copy(key, pass[:n])
 		}

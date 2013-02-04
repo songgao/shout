@@ -45,7 +45,7 @@ func ReadPassword(prompt string) (key []byte, err error) {
 		key, err = exec.Command(CMD_WRITE, "ask-for-password", "--prompt="+prompt).Output()
 	} else {
 		var n int
-		pass := make([]byte, 16)
+		pass := make([]byte, 64)
 
 		n, err = terminal.ReadPassword(syscall.Stdin, pass)
 		if err == nil {

@@ -4,7 +4,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-// +build linux
+// +build linux darwin
 
 package shout
 
@@ -22,21 +22,6 @@ const (
 )
 
 var USE_CMD_WRITE bool
-
-func init() {
-	// Check if there is an the external command to write.
-	_, err := os.Stat(CMD_WRITE)
-	if os.IsNotExist(err) {
-		return
-	}
-
-	err = exec.Command(CMD_WRITE, "--ping").Run()
-	if _, ok := err.(*exec.ExitError); !ok {
-
-//	if _, ok, _ := shout.Run(CMD_WRITE + " --ping"); ok {
-		USE_CMD_WRITE = true
-	}
-}
 
 // ReadPassword reads a password directly from terminal or through a third program.
 func ReadPassword(prompt string) (key []byte, err error) {

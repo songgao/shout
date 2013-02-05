@@ -4,6 +4,7 @@ package shout
 
 import (
 	"os"
+	"os/exec"
 )
 
 func init() {
